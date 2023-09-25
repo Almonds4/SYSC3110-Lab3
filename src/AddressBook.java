@@ -1,10 +1,26 @@
+import java.util.Random;
+import java.util.ArrayList;
 public class AddressBook {
 
-    private void removeBuddy(BuddyInfo buddy) {
+    ArrayList<BuddyInfo> Buddy = new ArrayList<BuddyInfo>();
+
+    public AddressBook(){
+        Buddy =new ArrayList<>();
+    }
+    private void addBuddy(BuddyInfo buddy) {
+        if(buddy !=null)
+            Buddy.add(buddy);
     }
 
-    private void addBuddy(BuddyInfo buddy) {
+    public BuddyInfo removeBuddy(int index) {
+        if(index >= 0 && index < Buddy.size()) {
+            return Buddy.remove(index);
+        }
+        return null;
+
+
     }
+
 
 
 
@@ -12,7 +28,7 @@ public class AddressBook {
     BuddyInfo buddy = new BuddyInfo("tom", "carleton", 613);
     AddressBook addressBook = new AddressBook();
     addressBook.addBuddy(buddy);
-    addressBook.removeBuddy(buddy);
+    addressBook.removeBuddy(0);
 }
 
 
